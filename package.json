@@ -17,6 +17,7 @@
 	},
 	"dependencies": {
 		"@types/jest": "^24.0.18",
+		"redis": "^2.8.0",
 		"restify": "^8.4.0"
 	}
 }

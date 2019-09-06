@@ -1,16 +1,12 @@
 const restify = require("restify");
 const PORT = 5000;
+const routes = require("./src/routes");
 
 console.log("Launching app");
 
 function initServer() {
 	const server = restify.createServer({ name: "superapp" });
-
-	server.get("/", (req, res, next) => {
-		res.send("home");
-		next();
-	});
-
+	routes(server);
 	return server;
 }
 
