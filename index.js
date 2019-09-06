@@ -1,3 +1,4 @@
+require("dotenv").config();
 const restify = require("restify");
 const PORT = 5000;
 const routes = require("./src/routes");
