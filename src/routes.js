@@ -1,4 +1,4 @@
-const redisData = require("./redis");
+const redisData = require("./redisData");
 
 function setRoutes(server) {
 	server.get("/", (req, res, next) => {
@@ -8,7 +8,8 @@ function setRoutes(server) {
 
 	server.get("/redis", async (req, res, next) => {
 		try {
-			res.send("data");
+			const data = await redisData();
+			res.send(data);
 			next();
 		} catch (error) {
 			res.send(error);
