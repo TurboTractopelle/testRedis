@@ -1,0 +1,8 @@
+redis:
+  images: redis
+app:
+  image: app:latest
+  ports:
+    - 4000:5000
+  links:
+    - redis
