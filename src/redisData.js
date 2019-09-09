@@ -7,9 +7,9 @@ function redisData() {
 		client.hset("hash key", "hashtest 1", "some value", redis.print);
 		client.hkeys("hash key", function(err, replies) {
 			res(replies);
-
-			client.quit();
 		});
+		console.log("saving data..");
+		client.save();
 	});
 }
 

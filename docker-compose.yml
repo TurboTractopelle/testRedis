@@ -1,8 +1,24 @@
-redis:
-  image: redis
-app:
-  image: app:latest
-  ports:
-    - 4000:5000
-  links:
-    - redis
+version: "2"
+services:
+  redis:
+    image: redis
+    networks:
+      - front-end
+    volumes:
+      - /home/docker/myredis:/data
+  mysql:
+    image: mysql
+    networks:
+      - front-end
+    volumes:
+      - /home/docker/myredis:/data
+  app:
+    build: .
+    ports:
+      - 4000:5000
+    networks:
+      - front-end
+    environment:
+      - REDIS_HOST=redis
+networks:
+  front-end:
